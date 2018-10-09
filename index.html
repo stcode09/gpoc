@@ -55,9 +55,20 @@
     
     debugger;
     
+    var event = new MouseEvent('click', {
+      view: window,
+      bubbles: true,
+      cancelable: true
+    });
+    
     var clicker = document.getElementById("clicker");
-    if(clicker) {
-      clicker.click();
+    var cancelled = !clicker.dispatchEvent(event);
+    if (cancelled) {
+      // A handler called preventDefault.
+      alert("cancelled");
+    } else {
+      // None of the handlers called preventDefault.
+      alert("not cancelled");
     }
   </script>
 </body>
