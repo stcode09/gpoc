@@ -2,6 +2,9 @@
 <html>
 <head>
   <script>
+    
+    debugger;
+    
     window.addEventListener("message", function(event) {
       if(event.origin && event.origin.indexOf('force') >= 0) {
         console.log('Received a message from MailApp!');
@@ -9,6 +12,10 @@
         document.getElementById("text").innerHTML = "Message received from MailApp!";
       }
     });
+    
+    debugger;
+    
+    window.location.href = "salesforce1://test"
     
     var data = 
         {
@@ -39,12 +46,7 @@
     
 </script>
 </head>
-<body onload="navigator()">
-  <script>
-    var navigator = function() {
-      debugger;
-    };
-  </script>
+<body>
   <input type="button" onclick="handleClickParent()" value="Message Parent"/>
   <p id="text"></p>
 </body>
